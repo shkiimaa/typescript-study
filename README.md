@@ -92,4 +92,14 @@ type UserInfo = string | number;
 let userName: UserInfo = 'kim';
 ```
 
-타입을 변수에 저장해 사용할 수 있다.
+- 타입을 변수에 저장해 사용할 수 있다.
+- `type`명은 대부분 대문자로 작명한다.
+
+```ts
+function plus(x: number): number {
+  return x + 2;
+}
+```
+
+- 파라미터와 리턴값에서 타입을 지정할 수 있다.
+- 위 함수는 파라미터에 number, retun 값으로 number로 지정한 것
