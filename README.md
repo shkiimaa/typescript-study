@@ -32,11 +32,11 @@ HTML파일 등에서 타입스크립트로 작성한 코드를 이용하려면
 
 # 📌 React 프로젝트에서 타입스크립트 사용하기
 
-## 이미 있는 React 프로젝트에 설치
+### 이미 있는 React 프로젝트에 설치
 
 `npm install --save typescript @types/node @types/react @types/react-dom @types/jest `
 
-## React 프로젝트를 새로 만들때
+### React 프로젝트를 새로 만들때
 
 `npx create-react-app my-app --template typescript`
 
