@@ -113,5 +113,4 @@ function plus(x: number): number {
 - return값의 타입은 파라미터 뒤에 써준다.
 
 ![](2022-10-22-02-32-04.png)
-
-파라미터에 string값을 넣을때 에러가 뜬다.
+인자에 string값을 넣으면 에러가 뜬다.
