@@ -2,8 +2,6 @@
 
 타입스크립트 공부하기 2022 10 20 start!
 
----
-
 # 📌 타입스크립트 설치하기
 
 `npm install -g typescript`
@@ -45,8 +43,6 @@ HTML파일 등에서 타입스크립트로 작성한 코드를 이용하려면
 <br>
 
 # 📌 타입스크립트 기본 분법
-
-<br>
 
 ## 타입스크립트 변수
 
@@ -115,3 +111,39 @@ function plus(x: number): number {
 ![](2022-10-22-02-32-04.png)
 
 파라미터에 string값을 넣을때 에러가 뜬다.
+
+## array에 쓸 수 있는 tuple 타입
+
+```ts
+type Member = [number, boolean];
+let john: Member = [123, true];
+let john: Member = ['kim', true]; //error
+let john: Member = [true, 'kim']; //error
+```
+
+array 자료 안에 순서를 포함해서 어떤 자료가 들어올지 정확히 지정할때 사용
+`[]` 안에 들어올 자료의 타입을 차례로 작성한다.
+
+## object에 넣어야 할 속성이 많을때
+
+```ts
+type Member = {
+  name: string;
+  age: string;
+  //...x100
+};
+
+let john: Member = { name: 'Kim' /* ...x100 */ };
+```
+
+object에 들어가야 할 값이 많으면 하나하나 작성하기 어렵다.
+
+```ts
+type Member = {
+  [key: string]: string;
+};
+
+let john: Member = { name: 'Kim', age: '123' };
+```
+
+`[key : string] : string` = 글자로된 key값의 value의 타입은 string으로 지정
