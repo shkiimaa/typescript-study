@@ -17,13 +17,59 @@ HTML파일 등에서 타입스크립트로 작성한 코드를 이용하려면
 
 `<script src='변환된파일.js'></script>`
 
+### 타입스크립트 컴파일
+
 **✼ 타입스크립트 사용 시 tscofig.json 파일을 만들어 아래 내용을 작성해야함!**
 
 ```json
 {
   "compilerOptions": {
     "target": "ES5",
-    "module": "commonjs"
+    "module": "commonjs",
+    "noImplicitAny": true,
+    "strictNullChecks": true
+  }
+}
+```
+
+`'target'` 은 Ts파일을 어떤 버전의 Js로 바꿀지 정하는 부분<br>
+`'module'` 은 Js 파일간 import 문법을 구현할 때 어떤 문법을 쓸지 정하는 부분
+<br>commonjs는 require 문법 es2015, esnext는 import 문법을 사용
+
+~~IE 호환성을 원하면 es5, commonjs를 사용~~<br>
+_IE는 죽었다..._
+
+`'noImplicitAny'` 는 any타입이 의도치 않게 발생할 경우 에러를 띄워줌<br>
+`'strictNullChecks'` 는 `null` `undefined` 타입이 이상한 조작하면 에러를 띄움
+
+### tsconfig에 들어가는 기타 항목들
+
+```json
+{
+  "compilerOptions": {
+    "target": "es5", // 'es3', 'es5', 'es2015', 'es2016', 'es2017','es2018', 'esnext' 가능
+    "module": "commonjs", //무슨 import 문법 쓸건지 'commonjs', 'amd', 'es2015', 'esnext'
+    "allowJs": true, // js 파일들 ts에서 import해서 쓸 수 있는지
+    "checkJs": true, // 일반 js 파일에서도 에러체크 여부
+    "jsx": "preserve", // tsx 파일을 jsx로 어떻게 컴파일할 것인지 'preserve', 'react-native', 'react'
+    "declaration": true, //컴파일시 .d.ts 파일도 자동으로 함께생성 (현재쓰는 모든 타입이 정의된 파일)
+    "outFile": "./", //모든 ts파일을 js파일 하나로 컴파일해줌 (module이 none, amd, system일 때만 가능)
+    "outDir": "./", //js파일 아웃풋 경로바꾸기
+    "rootDir": "./", //루트경로 바꾸기 (js 파일 아웃풋 경로에 영향줌)
+    "removeComments": true, //컴파일시 주석제거
+
+    "strict": true, //strict 관련, noimplicit 어쩌구 관련 모드 전부 켜기
+    "noImplicitAny": true, //any타입 금지 여부
+    "strictNullChecks": true, //null, undefined 타입에 이상한 짓 할시 에러내기
+    "strictFunctionTypes": true, //함수파라미터 타입체크 강하게
+    "strictPropertyInitialization": true, //class constructor 작성시 타입체크 강하게
+    "noImplicitThis": true, //this 키워드가 any 타입일 경우 에러내기
+    "alwaysStrict": true, //자바스크립트 "use strict" 모드 켜기
+
+    "noUnusedLocals": true, //쓰지않는 지역변수 있으면 에러내기
+    "noUnusedParameters": true, //쓰지않는 파라미터 있으면 에러내기
+    "noImplicitReturns": true, //함수에서 return 빼먹으면 에러내기
+    "noFallthroughCasesInSwitch": true //switch문 이상하면 에러내기
   }
 }
 ```
