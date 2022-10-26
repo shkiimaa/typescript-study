@@ -1,6 +1,8 @@
 # 타입스크립트 study
 
 타입스크립트 공부하기 2022 10 20 start!
+<br>
+<br>
 
 # 📌 타입스크립트 설치하기
 
@@ -16,6 +18,8 @@ HTML파일 등에서 타입스크립트로 작성한 코드를 이용하려면
 .ts가 아닌 변환된 .js 파일을 사용해야함
 
 `<script src='변환된파일.js'></script>`
+<br>
+<br>
 
 ### 타입스크립트 컴파일
 
@@ -41,6 +45,8 @@ _IE는 죽었다..._
 
 `'noImplicitAny'` 는 any타입이 의도치 않게 발생할 경우 에러를 띄워줌<br>
 `'strictNullChecks'` 는 `null` `undefined` 타입이 이상한 조작하면 에러를 띄움
+<br>
+<br>
 
 ### tsconfig에 들어가는 기타 항목들
 
@@ -75,6 +81,7 @@ _IE는 죽었다..._
 ```
 
 <br>
+<br>
 
 # 📌 React 프로젝트에서 타입스크립트 사용하기
 
@@ -87,8 +94,11 @@ _IE는 죽었다..._
 `npx create-react-app my-app --template typescript`
 
 <br>
+<br>
 
 # 📌 타입스크립트 기본 분법
+
+<br>
 
 ## 타입스크립트 변수
 
@@ -107,7 +117,7 @@ let userName: string = 'Kim';
 <br>
 ![](2022-10-25-17-59-16.png) <br>
 타입지정은 생략이 가능! 자동으로 지정된다.
-
+<br>
 <br>
 
 ## array, object 자료 타입지정 방법
@@ -123,6 +133,8 @@ let age: { age: number } = { age: 29 };
   <br>
 
 - **`age? : number` 는 `age : number | undefined`와 같다 (중요)**
+  <br>
+  <br>
 
 ## Union Type
 
@@ -147,6 +159,7 @@ let userName4: string | number[] = [1, 2, 3];
 array안에 number와 string으로 타입지정을 하려면 소괄호를 써줘야함<br>
 `(string | number)[]` 이렇게!
 <br>
+<br>
 
 ## Any Type
 
@@ -162,6 +175,8 @@ let userInfo: string = userName;
 
 any타입은 모든 자료형을 허용해준다. 하지만 any타입을 쓰면 타입스크립트를 사용하는 의미가 없어짐<br>
 **any타입은 타입을 해제하는 용도로 쓰인다.** (일반 js변수로 만들고 싶을때)
+<br>
+<br>
 
 ## Unknown Type
 
@@ -183,6 +198,8 @@ any타입은 `userInfo` 에 타입을 `string`으로 지정했는데도 `userNam
 ![](2022-10-26-16-40-28.png)<br>
 unknown타입은 `userInfo` 에 `userName`을 할당하면 에러가 발생한다.<br>
 버그를 방지하기위해 `any` 타입보단 `unknown` 타입을 사용하자
+<br>
+<br>
 
 ## Type alias
 
@@ -193,7 +210,9 @@ let userName: UserInfo = 'kim';
 ```
 
 - 타입을 변수에 저장해 사용할 수 있다.
-- `type`명은 대부분 대문자로 작명한다.
+- `type`명의 첫 글자는 대부분 대문자로 작명한다.
+  <br>
+  <br>
 
 ## 함수에 타입 지정하는 방법
 
@@ -210,6 +229,8 @@ function plus(x: number): number {
 
 ![](2022-10-22-02-32-04.png)<br>
 인자에 string값을 넣으면 에러가 뜬다.
+<br>
+<br>
 
 ## 함수에 쓸 수 있는 Void Type
 
@@ -223,6 +244,8 @@ plus(1); //error
 
 void타입은 리턴 할 일이 없을때 리턴이 있으면 에러를 발생한다.
 `:void` 부분을 비워놔도 되지면 엄격하게 관리하기 위해 쓴다.
+<br>
+<br>
 
 ## Type Narrowing
 
@@ -256,6 +279,8 @@ plus(1);
 
 Type Narrowing은 if문 등으로 타입을 하나로 정해주는 것을 뜻한다.<br>
 위 코드처럼 `if문`과 `typeof` 연산자를 사용하여 type이 string일 경우, number일 경우에 실행할 로직 짜줘야한다.
+<br>
+<br>
 
 ## array에 쓸 수 있는 tuple 타입
 
@@ -268,6 +293,8 @@ let john: Member = [true, 'kim']; //error
 
 array 자료 안에 순서를 포함해서 어떤 자료가 들어올지 정확히 지정할때 사용
 `[]` 안에 들어올 자료의 타입을 차례로 작성한다.
+<br>
+<br>
 
 ## object에 넣어야 할 속성이 많을때
 
