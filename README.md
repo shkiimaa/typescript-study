@@ -180,8 +180,9 @@ unknown타입은 any타입과 같은 역할을 하지만 any타입보다 안전�
 ![](2022-10-26-16-38-40.png)<br>
 any타입은 `userInfo` 에 타입을 `string`으로 지정했는데도 `userName`을 할당이 가능하다.
 
-![](2022-10-26-16-40-28.png)
-unknown타입은 `userInfo` 에 `userName`을 할당하면 에러가 발생한다. <br>
+![](2022-10-26-16-40-28.png)<br>
+unknown타입은 `userInfo` 에 `userName`을 할당하면 에러가 발생한다.<br>
+버그를 방지하기위해 `any` 타입보단 `unknown` 타입을 사용하자
 
 ## Type alias
 
