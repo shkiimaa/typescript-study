@@ -224,6 +224,39 @@ plus(1); //error
 void타입은 리턴 할 일이 없을때 리턴이 있으면 에러를 발생한다.
 `:void` 부분을 비워놔도 되지면 엄격하게 관리하기 위해 쓴다.
 
+## Type Narrowing
+
+```ts
+function plus(x: number | string) {
+  return x + 1;
+}
+
+plus(1);
+```
+
+- 위 함수를 실행하면 에러가 뜬다.
+- x 파라미터의 타입이 `number | string` 으로 되어 있는데 왜 에러가 날까?
+- `number | string` 은 `number`도 아니고 `string`도 아닌 `union type` 이기때문.
+
+이와 같은 경우에 Type Narrowing을 사용해야한다.
+
+```ts
+function plus(x: number | string) {
+  if (typeof x === 'string') {
+    return x + '1';
+  } else if (typeof x === 'number') {
+    return x + 1;
+  } else {
+    return 0;
+  }
+}
+
+plus(1);
+```
+
+Type Narrowing은 if문 등으로 타입을 하나로 정해주는 것을 뜻한다.<br>
+위 코드처럼 `if문`과 `typeof` 연산자를 사용하여 type이 string일 경우, number일 경우에 실행할 로직 짜줘야한다.
+
 ## array에 쓸 수 있는 tuple 타입
 
 ```ts
