@@ -146,6 +146,19 @@ array안에 number와 string으로 타입지정을 하려면 소괄호를 써줘
 `(string | number)[]` 이렇게!
 <br>
 
+## any Type
+
+```ts
+let userName: any;
+userName = 123;
+userName = 'kim';
+userName = true;
+userName = [];
+```
+
+any타입은 모든 자료형을 허용해준다. 하지만 any타입을 쓰면 타입스크립트를 사용하는 의미가 없어짐<br>
+**any타입은 타입을 해제하는 용도로 쓰인다.**
+
 ## Type alias
 
 ```ts
