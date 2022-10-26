@@ -122,6 +122,8 @@ let age: { age: number } = { age: 29 };
 - `let age : { age? : number } = { age : 29 }` key값 뒤에 ?를 작성하면 age는 옵션으로 되어 age값이 없어도 에러가 발생 안한다.
   <br>
 
+- **`age? : number` 는 `age : number | undefined`와 같다 (중요)**
+
 ## Union Type
 
 ```ts
@@ -146,7 +148,7 @@ array안에 number와 string으로 타입지정을 하려면 소괄호를 써줘
 `(string | number)[]` 이렇게!
 <br>
 
-## any Type
+## Any Type
 
 ```ts
 let userName: any;
@@ -161,7 +163,7 @@ let userInfo: string = userName;
 any타입은 모든 자료형을 허용해준다. 하지만 any타입을 쓰면 타입스크립트를 사용하는 의미가 없어짐<br>
 **any타입은 타입을 해제하는 용도로 쓰인다.** (일반 js변수로 만들고 싶을때)
 
-## unknown type
+## Unknown Type
 
 ```ts
 let userName: unknown;
@@ -184,13 +186,15 @@ unknown타입은 `userInfo` 에 `userName`을 할당하면 에러가 발생한�
 ## Type alias
 
 ```ts
-type UserInfo = string | number;
+type UserInfo = string;
 
 let userName: UserInfo = 'kim';
 ```
 
 - 타입을 변수에 저장해 사용할 수 있다.
 - `type`명은 대부분 대문자로 작명한다.
+
+## 함수에 타입 지정하는 방법
 
 ```ts
 function plus(x: number): number {
@@ -201,9 +205,23 @@ function plus(x: number): number {
 - 파라미터와 리턴값에서 타입을 지정할 수 있다.
 - 위 함수는 파라미터에 number, retun 값으로 number로 지정한 것
 - return값의 타입은 파라미터 뒤에 써준다.
+- 타입이 지정된 파라미터는 필수로 사용해야한다. (사용안하면 에러발생)
 
 ![](2022-10-22-02-32-04.png)<br>
 인자에 string값을 넣으면 에러가 뜬다.
+
+## 함수에 쓸 수 있는 Void Type
+
+```ts
+function plus(x: number): viod {
+  return x + 1;
+}
+
+plus(1); //error
+```
+
+void타입은 리턴 할 일이 없을때 리턴이 있으면 에러를 발생한다.
+`:void` 부분을 비워놔도 되지면 엄격하게 관리하기 위해 쓴다.
 
 ## array에 쓸 수 있는 tuple 타입
 
