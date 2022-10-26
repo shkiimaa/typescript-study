@@ -154,10 +154,32 @@ userName = 123;
 userName = 'kim';
 userName = true;
 userName = [];
+
+let userInfo: string = userName;
 ```
 
 any타입은 모든 자료형을 허용해준다. 하지만 any타입을 쓰면 타입스크립트를 사용하는 의미가 없어짐<br>
-**any타입은 타입을 해제하는 용도로 쓰인다.**
+**any타입은 타입을 해제하는 용도로 쓰인다.** (일반 js변수로 만들고 싶을때)
+
+## unknown type
+
+```ts
+let userName: unknown;
+userName = 123;
+userName = 'kim';
+userName = true;
+userName = [];
+
+let userInfo: string = userName;
+```
+
+unknown타입은 any타입과 같은 역할을 하지만 any타입보다 안전하다.
+
+![](2022-10-26-16-38-40.png)<br>
+any타입은 `userInfo` 에 타입을 `string`으로 지정했는데도 `userName`을 할당이 가능하다.
+
+![](2022-10-26-16-40-28.png)
+unknown타입은 `userInfo` 에 `userName`을 할당하면 에러가 발생한다. <br>
 
 ## Type alias
 
