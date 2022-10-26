@@ -135,6 +135,15 @@ let userName: string[] | number = 'Kim';
 ```
 
 이런식으로 스트링이 담긴 array 또는 숫자로 지정 가능
+
+```ts
+let userName3: (string | number)[] = ['kim', 123];
+let userName4: string | number[] = [1, 2, 3];
+```
+
+`string | number[]` 이렇게 작성하면 string 또는 number로된 array 이므로<br>
+array안에 number와 string으로 타입지정을 하려면 소괄호를 써줘야함<br>
+`(string | number)[]` 이렇게!
 <br>
 
 ## Type alias
