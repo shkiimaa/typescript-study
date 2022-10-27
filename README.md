@@ -278,7 +278,42 @@ plus(1);
 ```
 
 Type Narrowing은 if문 등으로 타입을 하나로 정해주는 것을 뜻한다.<br>
-위 코드처럼 `if문`과 `typeof` 연산자를 사용하여 type이 string일 경우, number일 경우에 실행할 로직 짜줘야한다.
+위 코드처럼 `if문`과 `typeof` 연산자등을 사용하여 type이 string일 경우, number일 경우에 실행할 로직 짜줘야한다.
+<br>
+<br>
+
+## Type Assertion
+
+```ts
+function plus(x: number | string) {
+  return (x as number) + '1';
+}
+
+plus(1);
+```
+
+assertion문법은 타입을 덮어 씌워준다. <br>
+위 코드에서 `x: number | string`으로 타입을 지정해 줬다.<br>
+파라미터 x는 `union type` 이기에 narrowing을 해줘야 하지만 as 문법을 사용하여 타입을 덮어 씌울 수 있다.
+
+```ts
+let userName: string = 'kim';
+userName as number;
+```
+
+as문법은 복잡한 타입(타입이 2개 이상) 일때 하나의 타입으로 확정 시켜주는 문법이므로<br>
+위 코드와 같이 타입이 1개일땐 사용 불가하다.
+
+```ts
+function plus(x: number | string) {
+  return (x as number) + '1';
+}
+
+plus('1'); // result = 11
+```
+
+assertion은 사용을 안하는게 낫다. plus에 string 타입의 인자를 넘겨도 assertion을 하면 버그 캐치를 못한다.<br>
+assertion은 남의 코드 수정할때, 에러가 왜나는지 모르겠을때 등 비상용 or 디버깅용으로 쓰자. (Narrowing 할땐 사용 X)
 <br>
 <br>
 
