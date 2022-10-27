@@ -211,6 +211,26 @@ let userName: UserInfo = 'kim';
 
 - 타입을 변수에 저장해 사용할 수 있다.
 - `type`명의 첫 글자는 대부분 대문자로 작명한다.
+- 타입변수는 재정의가 불가능하다.
+
+## Type alias extend
+
+```ts
+//type 합치기
+type Name = string;
+type Age = number;
+type User = Name | Age;
+
+//object type 합치기
+type PositionX = { x: number };
+type PositionY = { Y: number };
+
+type Position = PositionX & PositionY; // { x: number, y: number }
+```
+
+`type alias`도 `union type`으로 만들어 사용 할 수 있다. <br>
+`object 타입`의 경우 `& 연산자`로 타입을 extend 할 수 있음
+
   <br>
   <br>
 
