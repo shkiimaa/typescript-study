@@ -355,3 +355,35 @@ let john: Member = { name: 'Kim', age: '123' };
 ```
 
 `[key : string] : string` = string으로된 key값의 value의 타입은 string으로 지정
+<br>
+<br>
+
+## object 자료 수정 막는 방법 (readonly)
+
+```ts
+const user = {
+  name: 'kim',
+};
+
+user.name = 'park';
+```
+
+const 변수는 재할당을 막는 것이지 object 수정은 막을 수 없다.<br>
+위 코드는 정상적으로 `user`의 `name`은 `'park'`으로 변경된다.<br>
+타입스크립트에선 object 수정을 막는 방법도 있음
+
+```ts
+type UserName = {
+  readonly name: string;
+};
+
+const user: UserName = {
+  name: 'kim',
+};
+
+user.name = 'park'; //error
+```
+
+`readonly` 를 사용하면 뒤에있는 타입을 `읽기 전용`으로 변경해준다<br> `user` 의 `name`을 변경하면 이제 에러를 발생한다.
+
+**타입스크립트 에러는 에디터 & 터미널에서만 존재한다.<br>실제로 변환된 js파일은 에러 없이 잘 돌아가니 참고!**
