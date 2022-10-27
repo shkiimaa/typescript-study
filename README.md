@@ -308,7 +308,8 @@ type Member = {
 let john: Member = { name: 'Kim' /* ...x100 */ };
 ```
 
-object에 들어가야 할 값이 많으면 하나하나 작성하기 어렵다.
+object에 들어가야 할 값이 많으면 하나하나 타입을 지정해 주기 어렵다.
+그럴땐 key값에 타입을 지정해주면 된다.
 
 ```ts
 type Member = {
@@ -318,4 +319,4 @@ type Member = {
 let john: Member = { name: 'Kim', age: '123' };
 ```
 
-`[key : string] : string` = 글자로된 key값의 value의 타입은 string으로 지정
+`[key : string] : string` = string으로된 key값의 value의 타입은 string으로 지정
