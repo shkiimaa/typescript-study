@@ -83,3 +83,7 @@ function teacher(a: { subject: string | string[] }): string {
 }
 
 console.log(teacher({ subject: 'math' }));
+
+function 가위바위보(a: '가위' | '바위' | '보'): ('가위' | '바위' | '보')[] {
+  return ['가위', '바위', '보'];
+}

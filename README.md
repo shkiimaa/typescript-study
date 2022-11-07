@@ -409,3 +409,20 @@ user.name = 'park'; //error
 `readonly` 를 사용하면 뒤에있는 타입을 `읽기 전용`으로 변경해준다<br> `user` 의 `name`을 변경하면 이제 에러를 발생한다.
 
 **타입스크립트 에러는 에디터 & 터미널에서만 존재한다. 실제로 변환된 js파일은 에러 없이 잘 돌아가니 참고!**
+<br>
+<br>
+
+## Literal Types
+
+```ts
+let userName: 'kim';
+userName = 'kim';
+userName = 'park'; // error
+
+function userInfo(a: 'hello'): 1 | 0 {
+  return 1;
+}
+```
+
+리터럴타입은 변수에 뭐가 들어올지 더 엄격하게 관리 가능하다.<br>
+타입을 지정하는게 아닌 특정 값을 지정할 수 있다.
