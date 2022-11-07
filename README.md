@@ -426,3 +426,32 @@ function userInfo(a: 'hello'): 1 | 0 {
 
 리터럴타입은 변수에 뭐가 들어올지 더 엄격하게 관리 가능하다.<br>
 타입을 지정하는게 아닌 특정 값을 지정할 수 있다.
+
+### 리터널타입의 문제점
+
+```ts
+let userName = {
+  name: 'kim',
+};
+
+function userInfo(a: 'kim') {}
+userInfo(userName.name); //error
+```
+
+리터널타입은 `'kim' 이라는 자료만 들어올 수 있습니다` 가 아닌<br>
+`'kim' 이라는 타입만 들어올 수 있습니다` 이여서 위 코드에선 에러가 난다.
+
+### 해결방법
+
+```ts
+let userName = {
+  name: 'kim',
+} as const;
+
+function userInfo(a: 'kim') {}
+userInfo(userName.name);
+```
+
+`as const`를 사용하면 object value 값을 그대로 타입으로 지정해준다.<br>
+`as const`를 사용하면 userName.name은 string 타입이 아닌 'kim' 타입이 된다.<br>
+또한 object 속성들에 모두 readonly를 붙여준다.
